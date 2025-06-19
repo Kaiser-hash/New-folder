@@ -128,7 +128,63 @@ while True:
             case 2:
                 for n, persona in personas.items():
                     print(n, persona)
-            
+            case 3:
+                for n, persona in personas.items():
+                    print(n, persona)
+                perso=int(input("que persona desea actualizar: "))
+                print('''
+                1.- nombre
+                2.- numero
+                3.- estado civil
+                4.- ciudadano
+                5.- edad
+                ''')
+                dato=int(input("cual dato desea actualizar: "))
+                while True:
+                    try:
+
+                        match dato:
+                            case 1:
+                                nom=input("ingrese el nombre nuevo: ")
+                                dat="nombre"
+                                personas[perso][dat]=nom
+                            case 2:
+                                tel=int(input("ingrese el nuevo numero: "))
+                                dat="numero"
+                                personas[perso][dat]=tel
+                            case 3:
+                                est=int(input("estado civil 1.- casado, 2.- soltero: "))
+                                if est == 1:
+                                    estCivil = "casado"
+                                else:
+                                    estCivil = "soltero"
+                                dat="estadoCivil"
+                                personas[perso][dat]=est
+                            case 4:
+                                ciu=int(input("es ciudadano 1.- si, 2.- no: "))
+                                if ciu == 1:
+                                    ciudadano = True
+                                else:
+                                    ciudadano = False
+                                dat="ciudadano"
+                                personas[perso][dat]=ciu
+                            case 5:
+                                ed=int(input("ingrese la edad nueva: "))
+                                dat="edad"
+                                personas[perso][dat]=ed
+                            case _:
+                                print("opcion invalida")
+                    except Exception:
+
+                        print("ingrese un dato valido")                    
+
+            case 4:
+                for n, persona in personas.items():
+                    print(n, persona)
+                borrar=int(input("cual persona desea borrar: "))
+                del personas[borrar]
+                print(f"la persona {borrar} fue eliminada")
+
             case 5:
                 break
             case _:
